@@ -25,6 +25,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: |
+          tags: 
             orbitalstatikboya/n8n-python-openpyxl:latest
-            orbitalstatikboya/n8n-python-openpyxl:v2
+            orbitalstatikboya/n8n-python-openpyxl:v5
