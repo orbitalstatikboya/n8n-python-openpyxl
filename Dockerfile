@@ -21,4 +21,4 @@ USER node
 EXPOSE 5678
 
 ENTRYPOINT ["tini", "--"]
-CMD ["n8n", "start"]
+CMD ["n8n"]
