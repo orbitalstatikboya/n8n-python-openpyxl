@@ -25,4 +25,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: DOCKERHUB_KULLANICI_ADIN/n8n-python-openpyxl:latest
+          tags: orbitalstatikboya/n8n-python-openpyxl:latest
