@@ -2,14 +2,22 @@ FROM node:22-alpine
 
 USER root
 
-RUN apk add --no-cache python3 py3-pip tini
+RUN apk add --no-cache \
+    python3 \
+    py3-pip \
+    tini \
+    tesseract-ocr \
+    tesseract-ocr-data-eng \
+    tesseract-ocr-data-tur
 
 RUN python3 -m venv /opt/python-venv
+
 RUN /opt/python-venv/bin/pip install --no-cache-dir openpyxl
 
 RUN npm install -g n8n@2.29.10
 
 RUN mkdir -p /home/node/.n8n
+
 RUN chown -R node:node /home/node/.n8n /opt/python-venv
 
 RUN cat > /usr/local/bin/n8n-wrapper <<'EOF'
@@ -34,4 +42,5 @@ USER node
 EXPOSE 5678
 
 ENTRYPOINT ["tini", "--", "/usr/local/bin/n8n-wrapper"]
+
 CMD ["start"]
